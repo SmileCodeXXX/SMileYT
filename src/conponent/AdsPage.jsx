@@ -1,19 +1,21 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from "react";
 
-const AdSense = props => {
-  const { currentPath } = props
+const AdSense = (props) => {
+  const { currentPath } = props;
   useEffect(() => {
-    window.adsbygoogle = window.adsbygoogle || []
-    window.adsbygoogle.push({})
-  },[currentPath])
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {}
+  }, []);
+
   return (
     <div key={currentPath}>
       <ins
         class="adsbygoogle ads"
-        style={{ width:'250px'}}
+        style={{ width: "250px" }}
         data-ad-slot="5510111893"
-       data-ad-format="auto"
-       data-full-width-responsive="true"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
       />
     </div>
   );
