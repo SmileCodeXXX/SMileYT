@@ -7,7 +7,7 @@ const AdSense = () => {
      
       <ins
         class="adsbygoogle"
-        style={{ display: 'block' }}
+        style={{ display: 'block', zIndex:5, width:500}}
         data-ad-client="ca-pub-1245818362998975"
         data-ad-slot="5510111893"
         data-ad-format="auto"
