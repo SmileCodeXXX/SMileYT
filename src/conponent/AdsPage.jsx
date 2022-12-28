@@ -1,7 +1,8 @@
-/*
+
 import React from "react";
 
 const AdSense = () => {
+    const adsbygoogle ='';
   return (
     <div>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1245818362998975"
@@ -23,4 +24,3 @@ const AdSense = () => {
 };
 
 export default AdSense;
-*/
