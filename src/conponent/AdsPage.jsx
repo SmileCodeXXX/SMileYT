@@ -13,7 +13,7 @@ const AdSense = () => {
         data-full-width-responsive="true"
       ></ins>
       <script>
-        {(window.adsbygoogle = window.adsbygoogle || []).push({})}
+        {(window.adsbygoogle || []).push({})}
       </script>
     </div>
   );
