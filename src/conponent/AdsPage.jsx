@@ -2,11 +2,10 @@
 import React from "react";
 
 const AdSense = () => {
-    const adsbygoogle ='';
+    //const adsbygoogle ='';
   return (
     <div>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1245818362998975"
-     crossorigin="anonymous"></script>
+     
 
       <ins
         class="adsbygoogle"
@@ -17,7 +16,7 @@ const AdSense = () => {
         data-full-width-responsive="true"
       ></ins>
       <script>
-        {(adsbygoogle = window.adsbygoogle || []).push({})}
+        (adsbygoogle = window.adsbygoogle || []).push({})
       </script>
     </div>
   );
