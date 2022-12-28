@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Card from './Card';
 import Axios from 'axios'
+import AdSense from './AdsPage';
 
 function Main() {
   const[getURL, setGetURL] = useState('');
@@ -49,7 +50,7 @@ function Main() {
             </form>
           
         </div>
-
+    <AdSense/>
         <div className="download-list">
             {
                 getDatas.map((data)=>{
