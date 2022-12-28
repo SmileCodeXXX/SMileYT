@@ -5,7 +5,7 @@ const AdSense = props => {
   useEffect(() => {
     window.adsbygoogle = window.adsbygoogle || []
     window.adsbygoogle.push({})
-  },[])
+  },[currentPath])
   return (
     <div key={currentPath}>
       <ins
