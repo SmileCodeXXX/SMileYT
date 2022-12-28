@@ -3,8 +3,7 @@ import React from 'react';
 const AdSense = () => {
   return (
     <div>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-     crossorigin="anonymous"></script>
+     
       <ins
         class="adsbygoogle"
         style={{ display: 'inline-block', width: 100 }}
