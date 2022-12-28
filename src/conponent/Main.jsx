@@ -35,7 +35,7 @@ function Main() {
   return (
     <div className="container">
       <div className="centerForm">
-        <h1> Download Your Favorite YouTube Content</h1>
+        <h1> Download Your Favorite Content</h1>
 
         <form onSubmit={downloadHandler}>
           <label htmlFor="url">URL:</label>
