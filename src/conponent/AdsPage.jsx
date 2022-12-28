@@ -5,8 +5,6 @@ const AdSense = () => {
     //const adsbygoogle ='';
   return (
     <div>
-     
-
       <ins
         class="adsbygoogle"
         style="display:block"
@@ -16,7 +14,13 @@ const AdSense = () => {
         data-full-width-responsive="true"
       ></ins>
       <script>
-        (adsbygoogle = window.adsbygoogle || []).push({})
+       (adsbygoogle = window.adsbygoogle || []).push({
+            {
+            google_ad_client: "your client id",
+            enable_page_level_ads: true
+            }
+           
+        });
       </script>
     </div>
   );
