@@ -13,9 +13,9 @@ const AdSense = () => {
         
       ></ins>
       <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            (adsbygoogle = window.adsbygoogle || []).push({})
-        });
+        
+            (window.adsbygoogle = window.adsbygoogle || []).push({})
+     
       </script>
     </div>
   );
