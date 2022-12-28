@@ -39,7 +39,7 @@ function Main() {
       <AdSense.Google
         client="ca-pub-1245818362998975"
         slot="5510111893"
-        style={{ display: "block", width:'200px' }}
+        style={{ display: "block", width:'200px', height:'90px' }}
         format="auto"
         responsive="true"
       />
