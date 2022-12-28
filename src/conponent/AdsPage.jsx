@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const AdSense = (props) => {
+const AdSensed = (props) => {
   const { currentPath } = props;
   useEffect(() => {
     try {
@@ -21,4 +21,4 @@ const AdSense = (props) => {
   );
 };
 
-export default AdSense;
+export default AdSensed;
