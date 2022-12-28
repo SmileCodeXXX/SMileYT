@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AdSense = () => {
-  let adsbygoogle;
+  //let adsbygoogle;
   return (
     <div>
      
