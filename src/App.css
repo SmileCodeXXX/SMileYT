@@ -186,8 +186,8 @@ select{
 /*larger monitor*/
 @media screen and (min-width: 1024px) {
     .centerForm form{
-        width: 22%;
-        height: 70%;
+        width: 25%;
+        height: 60%;
     }
     .links{
         display:flex;
