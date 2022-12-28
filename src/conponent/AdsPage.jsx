@@ -4,7 +4,8 @@ const AdSense = () => {
   let adsbygoogle;
   return (
     <div>
-     
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1245818362998975"
+     crossorigin="anonymous"></script>
       <ins
         class="adsbygoogle"
         style={{ display: 'inline-block', width: '50px' }}
