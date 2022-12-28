@@ -50,7 +50,7 @@ function Main() {
             </form>
           
         </div>
-    <AdSense/>
+    
         <div className="download-list">
             {
                 getDatas.map((data)=>{
@@ -66,6 +66,8 @@ function Main() {
                 })
             }
         </div>
+        <br />
+        <AdSense/>
     </div>
   )
 }
