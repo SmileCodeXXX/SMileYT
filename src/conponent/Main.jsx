@@ -59,7 +59,7 @@ function Main() {
           <button className="download">Download</button>
         </form>
       </div>
-        <AdSense/>
+        
       <div className="download-list">
         {getDatas.map((data) => {
           return (
@@ -75,7 +75,7 @@ function Main() {
           );
         })}
       </div>
-      
+      <AdSense/>
     </div>
   );
 }
