@@ -4,7 +4,7 @@ const AdSense = () => {
   useEffect(() => {
     window.adsbygoogle = window.adsbygoogle || []
     window.adsbygoogle.push({})
-  })
+  },[])
   return (
     <div>
       <ins
