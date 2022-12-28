@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: sans-serif;
+}
+body{
+    background-color: rgb(227, 234, 248);
+}
+.wrapper{
+    width: 100%;
+    background-color: rgb(238, 31, 31);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.336), 0 1px 3px rgba(0, 0, 0, 0.417);
+    color: #fff;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 90px;
+    position: sticky;
+}
+.links{
+    display: none;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    font: 1.7rem sans-serif;
+    align-items: center;
+    padding: 20px ;
+    margin: 0 10px;
+    width: 90%;
+}
+.logo{
+    font-weight: bolder;
+    font-size: 1.3rem;
+    text-shadow: 1px 2px 8px #000 ;
+}
+.links ul{
+    margin: 8px 50px;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    font: 1.2rem sans-serif;
+}
+ul li{
+    padding: 10px;
+    text-shadow: 1px 2px 8px #000 ;
+}
+
+ul li:hover{
+    background-color: rgba(58, 53, 53, 0.142);
+    border-radius: 4px;
+}
+
+/*main content section*/
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:  auto;
+    padding: auto;
+    z-index: 1;
+}
+
+.centerForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80Vh;
+}
+.centerForm form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 0.7rem;
+    padding: 35px 30px;
+    margin-top: 2rem;
+    background-color: rgb(255, 255, 255);
+    height: 50%;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.296);
+}
+.centerForm h1{
+    font-size: 1.4rem;
+    word-wrap: break-word;
+    max-width: 80%;
+    text-align: center;
+}
+label{
+    padding: 2px;
+    display: inline-block;
+}
+
+input[type=text], select, textarea{
+    width: 100%;
+    font-size: 1rem;
+    padding: 2px;
+    border-radius: 4px;
+    line-height: 1.5;
+    background-color: #fff;
+   
+}
+select{
+    --tw-ring-inset: var(--tw-empty, );
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(0, 0, 0, 0.5);
+    --tw-ring-offset-shadow: 0 0 transparent;
+    --tw-ring-shadow: 0 0 transparent;
+    border: 1px solid black;
+}
+.download{
+    margin-top: 15px;
+    background-color: #f63a1d;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight:700;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+/*card styling */
+.download-list{
+    width: 35%;
+    padding: 18px 0;
+    display: flex;
+    justify-items: flex-start;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 20px;   
+}
+.card{
+    display: flex;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.296);
+    height: 200px;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.contents{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.contents h4{
+    padding: 2px;
+    font-size: 14.5px;
+    word-break:break-all;
+    word-wrap: break-word;
+    text-overflow: 20 ellipsis;
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+    padding: 0;
+    margin: 0;
+}
+
+.footer{
+   width: 100%;
+   height: 90px;
+   background-color: rgb(109, 109, 109);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+
+
+
+/*larger monitor*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    
+}
+
+/*larger monitor*/
+@media screen and (min-width: 1024px) {
+    .centerForm form{
+        width: 22%;
+        height: 70%;
+    }
+    .links{
+        display:flex;
+    }
+    .mobile-link{
+        display:none;
+    }
+    .logo{
+        font-weight: bolder;
+        font-size: 2rem;
+        text-shadow: 1px 2px 8px #000 ;
+    }
+    .centerForm h1{
+        font-size: 2rem;
+    }
+
+
+    .nav-container{
+        display: flex;
+        justify-content: space-between;
+        font: 1.7rem sans-serif;
+        align-items: center;
+        padding: 20px ;
+        margin: 0 80px;
+        width: 70%;
+    }
+
+    label{
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+    input[type=text], select, textarea{
+        width: 100%;
+        font-size: 1rem;
+        padding: 7px;
+        border-radius: 4px;
+        line-height: 1.5;
+        background-color: #fff;
+    }
+}
