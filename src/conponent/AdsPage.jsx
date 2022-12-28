@@ -8,7 +8,7 @@ const AdSense = () => {
      crossorigin="anonymous"></script>
       <ins
         class="adsbygoogle"
-        style={{ display: 'inline-block', width: '50px' }}
+        style={{ display: 'block', width: '500px' }}
         data-ad-client="ca-pub-1245818362998975"
         data-ad-slot="5510111893"
         data-ad-format="auto"
@@ -16,7 +16,7 @@ const AdSense = () => {
       ></ins>
       <script>
        { (adsbygoogle = window.adsbygoogle || []).push({})}
-      {(console.log(adsbygoogle= window.adsbygoogle || []).push({}))}
+
       </script>
     </div>
   );
