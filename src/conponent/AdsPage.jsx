@@ -12,7 +12,7 @@ const AdSense = (props) => {
     <div key={currentPath}>
       <ins
         class="adsbygoogle ads"
-        style={{ width: "250px" }}
+        style={{display:'inline-block' ,width: "250px" }}
         data-ad-slot="5510111893"
         data-ad-format="auto"
         data-full-width-responsive="true"
