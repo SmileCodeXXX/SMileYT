@@ -34,6 +34,7 @@ function Main() {
 
   return (
     <div className="container">
+         <AdSense/>
       <div className="centerForm">
         <h1> Download Your Favorite Content</h1>
 
@@ -75,7 +76,7 @@ function Main() {
           );
         })}
       </div>
-      <AdSense/>
+     
     </div>
   );
 }
