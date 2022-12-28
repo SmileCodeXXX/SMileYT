@@ -3,7 +3,7 @@ import Card from "./Card";
 import Axios from "axios";
 //import AdSense from './AdsPage';
 
-import AdSense from "react-adsense";
+//import AdSense from "react-adsense";
 
 function Main() {
   const [getURL, setGetURL] = useState("");
@@ -36,13 +36,6 @@ function Main() {
 
   return (
     <div className="container">
-      <AdSense.Google
-        client="ca-pub-1245818362998975"
-        slot="5510111893"
-        style={{ display: "block", width:'200px', height:'90px' }}
-        format="auto"
-        responsive="true"
-      />
       <div className="centerForm">
         <h1> Download Your Favorite Content</h1>
 
