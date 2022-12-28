@@ -1,3 +1,4 @@
+/*
 import React from "react";
 
 const AdSense = () => {
@@ -22,3 +23,4 @@ const AdSense = () => {
 };
 
 export default AdSense;
+*/
