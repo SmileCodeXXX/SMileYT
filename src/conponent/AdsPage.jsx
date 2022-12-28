@@ -16,7 +16,7 @@ const AdSense = () => {
       ></ins>
       <script>
        { (adsbygoogle = window.adsbygoogle || []).push({})}
-      {(console.log(adsbygoogle))}
+      {(console.log(adsbygoogle= window.adsbygoogle || []).push({}))}
       </script>
     </div>
   );
