@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import Axios from "axios";
-//import AdSense from './AdsPage';
+import AdSense from './AdsPage';
 
 function Main() {
   const [getURL, setGetURL] = useState("");
@@ -59,7 +59,7 @@ function Main() {
           <button className="download">Download</button>
         </form>
       </div>
-
+        <AdSense/>
       <div className="download-list">
         {getDatas.map((data) => {
           return (
@@ -76,15 +76,6 @@ function Main() {
         })}
       </div>
       
-      <ins
-        class="adsbygoogle"
-        style={{display:"block"}}
-        data-ad-client="ca-pub-1245818362998975"
-        data-ad-slot="5510111893"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
   );
 }
