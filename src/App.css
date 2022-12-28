@@ -56,7 +56,7 @@ ul li:hover{
 
 /*main content section*/
 .container{
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
