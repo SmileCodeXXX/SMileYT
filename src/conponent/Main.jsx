@@ -67,7 +67,7 @@ function Main() {
             }
         </div>
         <br />
-        <AdSense/>
+        {/*<AdSense/>*/}
     </div>
   )
 }
