@@ -14,13 +14,7 @@ const AdSense = () => {
         data-full-width-responsive="true"
       ></ins>
       <script>
-       (adsbygoogle = window.adsbygoogle || []).push({
-            {
-            google_ad_client: "your client id",
-            enable_page_level_ads: true
-            }
-           
-        });
+        {(adsbygoogle = window.adsbygoogle || []).push({})}
       </script>
     </div>
   );
