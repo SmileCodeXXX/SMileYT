@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AdSense = () => {
-  let adsbygoogle;
+  //let adsbygoogle;
   return (
     <div>
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1245818362998975"
@@ -15,7 +15,7 @@ const AdSense = () => {
         data-full-width-responsive="true"
       ></ins>
       <script>
-       { (adsbygoogle = window.adsbygoogle || []).push({})}
+        (adsbygoogle = window.adsbygoogle || []).push({})
 
       </script>
     </div>
