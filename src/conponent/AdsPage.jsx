@@ -9,10 +9,11 @@ const AdSense = props => {
   return (
     <div key={currentPath}>
       <ins
-        class="adsbygoogle"
+        class="adsbygoogle ads"
         style={{ width:'250px'}}
-        data-ad-client="ca-pub-1245818362998975"
         data-ad-slot="5510111893"
+       data-ad-format="auto"
+       data-full-width-responsive="true"
       />
     </div>
   );
