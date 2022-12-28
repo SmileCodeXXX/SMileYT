@@ -1,6 +1,4 @@
-
-import React from "react";
-
+/*
 const AdSense = () => {
     //const adsbygoogle ='';
   return (
@@ -13,11 +11,9 @@ const AdSense = () => {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
-      <script>
-        {(adsbygoogle = window.adsbygoogle || []).push({})}
-      </script>
+      
     </div>
   );
 };
 
-export default AdSense;
+export default AdSense;*/

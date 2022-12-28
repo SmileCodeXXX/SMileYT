@@ -1,6 +1,4 @@
 import axios from 'axios';
-import React from 'react';
-
 
 function Card({titles,playback,preview,download,id,format}) {
 
