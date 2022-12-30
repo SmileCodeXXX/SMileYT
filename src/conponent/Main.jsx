@@ -6,46 +6,105 @@ import Axios from "axios";
 //import AdSense from "react-adsense";
 
 function Main() {
-  const [getURL, setGetURL] = useState("");
   const [getFormat, setFormat] = useState("");
-
   const [getDatas, setData] = useState([]);
-
+  const [url, setUrl] = useState('');
+  const [downloading, setDownloading] = useState(false);
+  const [error, setError] = useState(null);
+  const [progress, setProgress] = useState(0);
+/*
   const downloadHandler = async (e) => {
     e.preventDefault();
-    await Axios({
-      method: "get",
-      url: `http://localhost:5001/api/download/?url=${getURL}&format=${getFormat}`,
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    }).then((res) => {
-      setData([
-        ...getDatas,
-        {
-          title: res.data.title,
-          playback: res.data.playback,
-          preview: res.data.preview_url,
-          download: res.data.download,
-          id: Math.random * 100,
-        },
-      ]);
-      console.log(res.data);
-    });
-
+   
     setGetURL("");
   };
+  */
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    setDownloading(true);
+    setError(null);
+    setProgress(0);
+
+    fetch(`https://www.youtube.com/watch?v=${getVideoId(url)}`,{ mode: 'no-cors',headers:{
+      'Access-Control-Allow-Origin':'*'
+    }})
+      .then((response) => {
+        response.text().then((html) => {
+          const videoUrl = extractVideoUrl(html);
+          downloadVideo(videoUrl);
+        });
+
+        response.body.getReader().read().then(function updateProgress(result) {
+          if (result.done) return;
+          setProgress((prevProgress) => prevProgress + result.value.length);
+          return response.body
+            .getReader()
+            .read()
+            .then(updateProgress);
+        });
+      })
+      .catch((err) => {
+        setError(err);
+        setDownloading(false);
+      });
+  };
+
+
+  const downloadVideo = (videoUrl) => {
+    const a = document.createElement('a');
+    a.href = videoUrl;
+    a.download = 'video.mp4';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setDownloading(false);
+  };
+
+  const getVideoId = (url) => {
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    return match && match[2].length === 11 ? match[2] : null;
+  };
+
+  const extractVideoUrl = (html) => {
+    const videoUrlRegex = /"url_encoded_fmt_stream_map": "([^"]+)"/;
+    const videoUrlMatch = html.match(videoUrlRegex);
+    console.log(videoUrlMatch)
+    if (!videoUrlMatch) {
+      throw new Error('Unable to extract video URL');
+    }
+
+    const encodedUrl = videoUrlMatch[1];
+    const decodedUrl = decodeURIComponent(encodedUrl);
+    const urlRegex = /url=([^&]+)/g;
+    let match;
+    let videoUrl;
+
+    while ((match = urlRegex.exec(decodedUrl)) !== null) {
+      const [, extractedUrl] = match;
+      videoUrl = extractedUrl;
+    }
+
+    return videoUrl;
+  };
+
+
+
 
   return (
     <div className="container">
       <div className="centerForm">
         <h1> Download Your Favorite Content</h1>
 
-        <form onSubmit={downloadHandler}>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="url">URL:</label>
           <input
             type="text"
             id="url"
-            value={getURL}
-            onChange={(e) => setGetURL(e.target.value)}
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
           />
           <label htmlFor="url">Format:</label>
           <select
@@ -63,7 +122,16 @@ function Main() {
       </div>
 
       <div className="download-list">
-        {getDatas.map((data) => {
+        
+          {downloading && (
+            <div>
+              <p>Downloading...</p>
+              <progress value={progress} max="100" />
+            </div>
+          )}
+          {error && <p>An error occurred: {error.message}</p>}
+        
+      { /* {getDatas.map((data) => {
           return (
             <Card
               key={data.id}
@@ -75,7 +143,7 @@ function Main() {
               format={getFormat}
             />
           );
-        })}
+        })}*/}
       </div>
     </div>
   );
