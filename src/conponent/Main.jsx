@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import Axios from "axios";
-//import AdSense from './AdsPage';
+import AdSense from './AdsPage';
 
 //import AdSense from "react-adsense";
 
@@ -129,6 +129,7 @@ function Main() {
               <progress value={progress} max="100" />
             </div>
           )}
+          <AdSense/>
           {error && <p>An error occurred: {error.message}</p>}
         
       { /* {getDatas.map((data) => {
