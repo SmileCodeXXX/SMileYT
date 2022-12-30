@@ -120,7 +120,7 @@ function Main() {
           <button className="download">Download</button>
         </form>
       </div>
-
+      <AdSense/>
       <div className="download-list">
         
           {downloading && (
@@ -129,7 +129,7 @@ function Main() {
               <progress value={progress} max="100" />
             </div>
           )}
-          <AdSense/>
+          
           {error && <p>An error occurred: {error.message}</p>}
         
       { /* {getDatas.map((data) => {
