@@ -64,12 +64,12 @@ function Main() {
   const getVideoId = (url) => {
     const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
-
-    return match && match[2].length === 11 ? match[2] : null;
+    console.log(match[2])
+    return match && match[2].length  ? match[2] : null;
   };
 
   const extractVideoUrl = (html) => {
-    const videoUrlRegex = /"url_encoded_fmt_stream_map": "([^"]+)"/;
+    const videoUrlRegex = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/;
     const videoUrlMatch = html.match(videoUrlRegex);
     console.log(videoUrlMatch)
     if (!videoUrlMatch) {
@@ -77,8 +77,9 @@ function Main() {
     }
 
     const encodedUrl = videoUrlMatch[1];
+    
     const decodedUrl = decodeURIComponent(encodedUrl);
-    const urlRegex = /url=([^&]+)/g;
+    const urlRegex = /url=([^&]+)g/;
     let match;
     let videoUrl;
 
