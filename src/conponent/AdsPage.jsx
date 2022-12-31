@@ -21,7 +21,7 @@ const AdSensed = (props) => {
     <div key={currentPath} className='ads'>
       <ins
         className="adsbygoogle "
-        style={{display:'inline-block' ,width:"728px" ,height:"90px"}}
+        style={{display:'inline-block' , margin:'auto',width:"100%" ,height:"90px"}}
         data-ad-format="autorelaxed"
         data-ad-client="ca-pub-1245818362998975"
         data-ad-slot="6500200872"
