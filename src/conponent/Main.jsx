@@ -22,9 +22,15 @@ function Main() {
   */
 
   const BaseUrl = "https://www.youtube.com/watch?v=";
+  const corsProxy = "https://smileyt.netlify.app/"||"localhost:3000"
+  const instance = axios.create({
+    baseURL:corsProxy
+  })
+
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     setDownloading(true);
     setError(null);
     setProgress(0);
@@ -58,20 +64,14 @@ function Main() {
       */
 
     try {
-      const res = await axios(BaseUrl+`${getVideoId(url)}`,{
-        method: "GET",
-       
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-          'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-          "Access-Control-Expose-Headers":"*"
-          
-        },
-        withCredentials:'true'
-       // credentials: "same-origin",
-      });
-      console.log(res);
+        instance.get(BaseUrl+`${getVideoId(url)}`)
+          .then(response =>{
+            console.log(response)
+          })
+          .catch(error=>{
+            console.log(error)
+          })
+      
     } catch (error) {
       setError(error);
       setDownloading(false);
