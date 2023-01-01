@@ -22,7 +22,7 @@ function Main() {
   */
 
   const BaseUrl = "https://www.youtube.com/watch?v=";
-  const corsProxy = 'https://smileyt.netlify.app/'
+  const corsProxy = 'https://www.youtube.com/'
   const instance = axios.create({
     baseURL:corsProxy,
     headers:{
@@ -67,7 +67,7 @@ function Main() {
       */
       if(url.length < 1 || null) return 
     try {
-        axios.get(`${corsProxy}https://www.youtube.com/`)
+        axios.get(`${corsProxy}`)
           .then(response =>{
             console.log(response)
             
