@@ -21,18 +21,17 @@ function Main() {
   };
   */
 
-  const BaseUrl = "https://www.youtube.com/watch?v=";
-  let corsProxy ='https://www.youtube.com/';
+  const BaseUrl = "www.youtube.com/watch?v=";
+  let corsProxy = "https://www.youtube.com/";
   const instance = axios.create({
-    baseURL:corsProxy,
-    headers:{
-      'Access-Control-Allow-Origin':'*'
-    }
-  })
+    baseURL: corsProxy,
+    mode: "no-cors",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
 
-
-
-  const handleSubmit = async (event) => {
+  const handleSubmit =  (event) => {
     event.preventDefault();
     setDownloading(true);
     setError(null);
@@ -65,17 +64,29 @@ function Main() {
         setDownloading(false);
       });
       */
-      if(url.length < 1 || null) return 
+    if (url.length < 1 || null) return;
     try {
-        axios.get(`${corsProxy}watch?v=${getVideoId(url)}`)
-          .then(response =>{
-            console.log(response)
-            
-          })
-          .catch(error=>{
-            console.log(error)
-          })
+      const myInit = {
+         method: "GET", 
+         mode: "no-cors",
+         header:{
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
+          "Content-Type": "application/json",
+          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+         }
+        };
+      const myRequest = new Request(`${BaseUrl}${getVideoId(url)}`, myInit);
       
+      fetch(myRequest)
+        .then((response)=>{
+          const videoUrl = extractVideoUrl(response.url);
+          //downloadVideo(videoUrl);
+          console.log(videoUrl)
+        })
+        .catch(function(e){
+          return console.log(e)
+        })
+            
     } catch (error) {
       setError(error);
       setDownloading(false);
@@ -113,7 +124,7 @@ function Main() {
     const encodedUrl = videoUrlMatch[1];
     console.log(encodedUrl);
     const decodedUrl = decodeURIComponent(encodedUrl);
-    const urlRegex = /url=([^&]+)g/;
+    const urlRegex = url=/([^&]+)g/;
     let match;
     let videoUrl;
 
