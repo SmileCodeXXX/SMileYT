@@ -24,7 +24,11 @@ function Main() {
   const BaseUrl = "https://www.youtube.com/watch?v=";
   const corsProxy = "https://smileyt.netlify.app/"||"localhost:3000"
   const instance = axios.create({
-    baseURL:corsProxy
+    baseURL:corsProxy,
+    headers:{
+      crossOriginIsolated: true,
+      'Access-Control-Allow-Origin':'*'
+    }
   })
 
 
