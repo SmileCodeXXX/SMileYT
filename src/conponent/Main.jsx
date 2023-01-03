@@ -22,7 +22,7 @@ function Main() {
         {
           headers: {
            Accept: "*/*",
-           //'Content-Type':'*'
+          'Content-Type':'*'
           },
         }
       ).then((res)=>{
