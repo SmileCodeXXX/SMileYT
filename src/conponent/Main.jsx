@@ -24,7 +24,7 @@ function Main() {
          
           'Content-Type':' application/json',
           //'Access-Control-Allow-Origin':'/',
-          //'Access-Control-Expose-Headers': '*'
+          'Access-Control-Expose-Headers': '*'
           },
           mode:'no-cors',
           withCredentials: false,
