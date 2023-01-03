@@ -25,7 +25,7 @@ function Main() {
           'Content-Type':' application/json',
           'Access-Control-Allow-Methods': 'GET, OPTIONS, DELETE',
           'Access-Control-Allow-Headers': 'Content-Type, x-requested-with',
-          'Access-Control-Allow-Origin':'https://smileyt.netlify.app/',
+          'Access-Control-Allow-Origin':'https://smileyt.netlify.app/?=',
           //'Access-Control-Expose-Headers': '*'
           },
           accept: '*/*',
