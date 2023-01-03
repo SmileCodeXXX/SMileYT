@@ -25,7 +25,7 @@ function Main() {
           'Content-Type':'*',
           //'Access-Control-Allow-Origin':'*/*'
           },
-
+          mode:'no-cors'
           //withCredentials: true,
           
         }
