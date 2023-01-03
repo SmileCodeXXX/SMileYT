@@ -23,6 +23,7 @@ function Main() {
           headers: {
            Accept: "*/*",
           //'Content-Type':'*'
+          'Access-Control-Allow-Origin':'*'
           },
         }
       ).then((res)=>{
