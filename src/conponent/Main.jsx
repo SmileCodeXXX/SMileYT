@@ -17,18 +17,18 @@ function Main() {
     e.preventDefault();
 
     try {
-   /*  await axios.get(
+     await axios.get(
         `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
         {
           headers: {
-          'Content-Type':'*',
+         
           'Content-Type':' application/json',
-          'Access-Control-Allow-Origin':'origin',
-
+          'Access-Control-Allow-Origin':'/',
+          //'Access-Control-Expose-Headers': '*'
           },
           mode:'no-cors',
           withCredentials: true,
-        
+          credentials:'include'
           
         }
       ).then((res)=>{
@@ -38,26 +38,8 @@ function Main() {
         img: res.data.info.image,
         title: res.data.info.title
        }])      
-});*/
-  const init ={
-    //mode:'no-cors',
-    
-    header:{
-      'Content-Type':'*/*',
-     
-      'Allow':'*/*'
-    }
-  }
-  const link = `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`
-  //const myRequest = new Request(init)
-  await fetch(link,init)
-    .then((res)=>{
-      //console.log(d)
-      const read = res.body.getReader()
-      console.log(read.read())
-    })
+      });
 
-      
     } catch (error) {
       console.log(error);
       console.log("not working");
