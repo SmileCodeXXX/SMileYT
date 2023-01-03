@@ -142,7 +142,7 @@ select{
 }
 .card{
     display: flex;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.296);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.364), 0 1px 3px rgba(0, 0, 0, 0.357);
     height: 200px;
     gap: 1rem;
     justify-content: flex-start;

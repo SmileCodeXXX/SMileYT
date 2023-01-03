@@ -17,12 +17,12 @@ function Main() {
     e.preventDefault();
 
     try {
-      axios.get(
+     await axios.get(
         `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
         {
           headers: {
            Accept: "*/*",
-          'Content-Type':'*'
+          //'Content-Type':'*'
           },
         }
       ).then((res)=>{
