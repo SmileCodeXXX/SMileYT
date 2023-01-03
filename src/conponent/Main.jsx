@@ -18,12 +18,12 @@ function Main() {
 
     try {
      await axios.get(
-        `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+        `/https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
         {
           headers: {
          
           'Content-Type':' application/json',
-          'Access-Control-Allow-Origin':'*',
+          'Access-Control-Allow-Origin':'http://localhost:3000/',
           //'Access-Control-Expose-Headers': '*'
           },
           mode:'no-cors',
