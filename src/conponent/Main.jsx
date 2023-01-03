@@ -18,17 +18,18 @@ function Main() {
 
     try {
      await axios.get(
-        `/https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+        `https://smileyt.netlify.app/?url=https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
         {
           headers: {
          
           'Content-Type':' application/json',
-          'Access-Control-Allow-Origin':'http://localhost:3000/',
+          'Access-Control-Allow-Origin':'https://smileyt.netlify.app',
           //'Access-Control-Expose-Headers': '*'
           },
+          Accept: '*',
           mode:'no-cors',
-          withCredentials: false,
-          credentials:'include'
+          withCredentials: true,
+          //credentials:'include'
           
         }
       ).then((res)=>{
