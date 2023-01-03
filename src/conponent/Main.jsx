@@ -1,139 +1,53 @@
 import React, { useState } from "react";
 import Card from "./Card";
-import Axios from "axios";
 import AdSense from "./AdsPage";
 import axios from "axios";
 
-//import AdSense from "react-adsense";
-
 function Main() {
   const [getFormat, setFormat] = useState("");
-  const [getDatas, setData] = useState([]);
-  const [url, setUrl] = useState("");
-  const [downloading, setDownloading] = useState(false);
-  const [error, setError] = useState(null);
-  const [progress, setProgress] = useState(0);
-  /*
-  const downloadHandler = async (e) => {
+  const [videoUrl, setVideoUrl] = useState("");
+  const [data, setData] = useState([]);
+ 
+  //const [videoId, setVideoId] = useState(null)
+  //const [downloading, setDownloading] = useState(false);
+  //const [error, setError] = useState(null);
+  //const [progress, setProgress] = useState(0);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-   
-    setGetURL("");
-  };
-  */
 
-  const BaseUrl = "www.youtube.com/watch?v=";
-  let corsProxy = "https://www.youtube.com/";
-  const instance = axios.create({
-    baseURL: corsProxy,
-    mode: "no-cors",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  });
-
-  const handleSubmit =  (event) => {
-    event.preventDefault();
-    setDownloading(true);
-    setError(null);
-    setProgress(0);
-    /*
-    await fetch(`https://www.youtube.com/watch?v=${getVideoId(url)}`,{ mode: 'no-cors',headers:{
-      'Access-Control-Allow-Origin':'*'
-    }})
-      .then((response) => {
-        response.text().then((html) => {
-          //return console.log(html)
-          const videoUrl = extractVideoUrl(html);
-          
-         downloadVideo(`https://www.youtube.com/watch?v=${getVideoId(url)}`);
-        });
-       // downloadVideo(`https://www.youtube.com/watch?v=${getVideoId(url)}`);
+    try {
+      axios.get(
+        `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+        {
+          headers: {
+           Accept: "*/*",
+           //'Content-Type':'*'
+          },
+        }
+      ).then((res)=>{
+       console.log(res)
+       setData([...data,{
+        id: res.data.id,
+        img: res.data.info.image,
+        title: res.data.info.title
+       }])
         
 
-        response.body.getReader().read().then(function updateProgress(result) {
-          if (result.done) return;
-          setProgress((prevProgress) => prevProgress + result.value.length);
-          return response.body
-            .getReader()
-            .read()
-            .then(updateProgress);
-        });
-      })
-      .catch((err) => {
-        setError(err);
-        setDownloading(false);
+
+
       });
-      */
-    if (url.length < 1 || null) return;
-    try {
-      const myInit = {
-         method: "GET", 
-         mode: "no-cors",
-         header:{
-          'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-          "Content-Type": "application/json",
-          "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-         }
-        };
-      const myRequest = new Request(`${BaseUrl}${getVideoId(url)}`, myInit);
+
+      //const dlUrl = response;
+      //downloadVideo(dlUrl.data);
+     // if(!response.status === 200) return
+         
+          //console.log(getFormat)
       
-      fetch(myRequest)
-        .then((response)=>{
-          const videoUrl = extractVideoUrl(response.url);
-          //downloadVideo(videoUrl);
-          console.log(videoUrl)
-        })
-        .catch(function(e){
-          return console.log(e)
-        })
-            
     } catch (error) {
-      setError(error);
-      setDownloading(false);
+      console.log(error);
+      console.log("not working");
     }
-  };
-
-  const downloadVideo = (videoUrl) => {
-    const a = document.createElement("a");
-    a.href = videoUrl;
-    a.download = "video.mp4";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setDownloading(false);
-  };
-
-  const getVideoId = (url) => {
-    const regExp =
-      /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    //console.log(match[2].length)
-    return match && match[2].length == 11 ? match[2] : null;
-  };
-
-  const extractVideoUrl = (html) => {
-    const videoUrlRegex =
-      /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/;
-    const videoUrlMatch = html.match(videoUrlRegex);
-
-    console.log(html);
-    if (!videoUrlMatch) {
-      throw new Error("Unable to extract video URL");
-    }
-
-    const encodedUrl = videoUrlMatch[1];
-    console.log(encodedUrl);
-    const decodedUrl = decodeURIComponent(encodedUrl);
-    const urlRegex = url=/([^&]+)g/;
-    let match;
-    let videoUrl;
-
-    while ((match = urlRegex.exec(decodedUrl)) !== null) {
-      const [, extractedUrl] = match;
-      videoUrl = extractedUrl;
-    }
-
-    return videoUrl;
   };
 
   return (
@@ -146,8 +60,8 @@ function Main() {
           <input
             type="text"
             id="url"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            value={videoUrl}
+            onChange={(e) => setVideoUrl(e.target.value)}
           />
           <label htmlFor="url">Format:</label>
           <select
@@ -165,28 +79,17 @@ function Main() {
       </div>
       <AdSense />
       <div className="download-list">
-        {downloading && (
-          <div>
-            <p>Downloading...</p>
-            <progress value={progress} max="100" />
-          </div>
-        )}
-
-        {error && <p>An error occurred: {error.message}</p>}
-
-        {/* {getDatas.map((data) => {
-          return (
-            <Card
-              key={data.id}
-              id={data.id}
-              titles={data?.title}
-              playback={data.playback}
-              preview={data.preview}
-              download={data.download}
-              format={getFormat}
-            />
-          );
-        })}*/}
+        {
+          data.map((d)=>
+           ( <Card
+            key={d.id}
+            id={d.id}
+            titles={d?.title}
+            img ={d?.img}
+            progress ={data}
+          />)
+          )  
+        }
       </div>
     </div>
   );

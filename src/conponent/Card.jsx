@@ -1,30 +1,34 @@
-import axios from 'axios';
+//import axios from 'axios';
 
-function Card({titles,playback,preview,download,id,format}) {
-
-    const dl = ()=>{
-        axios({
-            url:`${download}`,
-            method: 'GET',
-            responseType: 'blob', // important
-          }).then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', `${titles}.${format}`);
-            document.body.appendChild(link);
-            link.click();
-        });
-    }
+function Card({titles,playback,img,}) {
+/*
+    const downloadVideo = async() => {
+        //console.log(videoId);
+        //setVideoId(url.id);
+        await axios({
+           url: `https://loader.to/ajax/progress.php?id=${'videoId'}`,
+           method: "GET",
+           headers: {
+             Accept: "*//*",
+           },
+         }).then((response) => {
+           console.log(response.data);
+           const a = document.createElement("a");
+           a.href = response.data.download_url;
+           a.download = "video.mp4";
+           document.body.appendChild(a);
+           a.click();
+           a.remove();
+           //setDownloading(false);
+         });
+       };*/
   return (
-   <div className="card">
-        <div className="card-img">
-            <iframe src={preview} title={'card'} />
-        </div>
+   <div className="card">   
+        <img src={img} alt={'card'} />
         <div className="contents">
             <h4>{titles}</h4>
             <h4>{playback}</h4>
-            <button className='download' onClick={dl} style={{width:'90%'}}>Download</button>
+            <button className='download' /*onClick={downloadVideo}*/ style={{width:'90%'}}>Download</button>
         </div>
    </div>
   )
