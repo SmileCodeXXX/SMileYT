@@ -23,12 +23,12 @@ function Main() {
           headers: {
          
           'Content-Type':' application/json',
-          'Access-Control-Allow-Origin':'https://smileyt.netlify.app',
+          //'Access-Control-Allow-Origin':'https://smileyt.netlify.app',
           //'Access-Control-Expose-Headers': '*'
           },
-          Accept: '*',
+          accept: '*',
           mode:'no-cors',
-          withCredentials: true,
+          //withCredentials: true,
           //credentials:'include'
           
         }
