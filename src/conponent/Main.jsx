@@ -18,12 +18,12 @@ function Main() {
 
     try {
      await axios.get(
-        `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+        `/https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
         {
           headers: {
            Accept: "*/*",
           'Content-Type':'*',
-          'Access-Control-Allow-Origin':'*/*'
+          //'Access-Control-Allow-Origin':'*/*'
           },
 
           //withCredentials: true,
@@ -37,16 +37,9 @@ function Main() {
         title: res.data.info.title
        }])
         
+});
 
 
-
-      });
-
-      //const dlUrl = response;
-      //downloadVideo(dlUrl.data);
-     // if(!response.status === 200) return
-         
-          //console.log(getFormat)
       
     } catch (error) {
       console.log(error);
