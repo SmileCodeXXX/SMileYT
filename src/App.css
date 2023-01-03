@@ -131,29 +131,27 @@ select{
 /*card styling */
 .download-list{
     width:100%;
-    padding: 18px 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1.2rem;
-    margin-bottom: 20px; 
-    background-color: rgb(255, 255, 255);  
+    max-height: 500px;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
 }
 .card{
     display: flex;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.364), 0 1px 3px rgba(0, 0, 0, 0.357);
-    height: 200px;
+    height: 210px;
     gap: 1rem;
     justify-content: flex-start;
     align-items: center;
-    width: 40%;
+    max-width: 95%;
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
     overflow: hidden;
+    margin: 20px auto;
 }
 img{
-    width: 300px;
+    width: 40%;
+    height: 300px;
     object-fit: cover;
 }
 .contents{
@@ -167,7 +165,8 @@ img{
     font-size: 14.5px;
     word-break:break-all;
     word-wrap: break-word;
-    text-overflow: 20 ellipsis;
+    text-overflow: ellipsis;
+
 }
 
 
@@ -243,5 +242,19 @@ img{
         border-radius: 4px;
         line-height: 1.5;
         background-color: #fff;
+    }
+
+
+    .card{
+        display: flex;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.364), 0 1px 3px rgba(0, 0, 0, 0.357);
+        height: 220px;
+        gap: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+        width: 50%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        overflow: hidden;
     }
 }

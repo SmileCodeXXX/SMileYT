@@ -22,9 +22,12 @@ function Main() {
         {
           headers: {
            Accept: "*/*",
-          //'Content-Type':'*'
-          'Access-Control-Allow-Origin':'*'
+          'Content-Type':'*',
+          'Access-Control-Allow-Origin':'*/*'
           },
+
+          //withCredentials: true,
+          
         }
       ).then((res)=>{
        console.log(res)
