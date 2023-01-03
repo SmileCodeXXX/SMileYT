@@ -25,8 +25,8 @@ function Main() {
           'Content-Type':'*',
           'Access-Control-Allow-Origin':'https://smileyt.netlify.app/'
           },
-          mode:'no-cors'
-          //withCredentials: true,
+          mode:'no-cors',
+          withCredentials: true,
           
         }
       ).then((res)=>{
