@@ -17,16 +17,18 @@ function Main() {
     e.preventDefault();
 
     try {
-     await axios.get(
+   /*  await axios.get(
         `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
         {
           headers: {
-           Accept: "*/*",
           'Content-Type':'*',
-          'Access-Control-Allow-Origin':'https://smileyt.netlify.app/'
+          'Content-Type':' application/json',
+          'Access-Control-Allow-Origin':'origin',
+
           },
           mode:'no-cors',
           withCredentials: true,
+        
           
         }
       ).then((res)=>{
@@ -35,10 +37,25 @@ function Main() {
         id: res.data.id,
         img: res.data.info.image,
         title: res.data.info.title
-       }])
-        
-});
-
+       }])      
+});*/
+  const init ={
+    //mode:'no-cors',
+    
+    header:{
+      'Content-Type':'*/*',
+     
+      'Allow':'*/*'
+    }
+  }
+  const link = `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`
+  //const myRequest = new Request(init)
+  await fetch(link,init)
+    .then((res)=>{
+      //console.log(d)
+      const read = res.body.getReader()
+      console.log(read.read())
+    })
 
       
     } catch (error) {
