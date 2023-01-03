@@ -28,6 +28,7 @@ function Main() {
           },
           accept: '*',
           mode:'no-cors',
+          responseType:'json'
           //withCredentials: true,
           //credentials:'include'
           
