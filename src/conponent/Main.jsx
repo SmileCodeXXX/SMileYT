@@ -18,7 +18,7 @@ function Main() {
 
     try {
      await axios.get(
-        `?=https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+        `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
         {
           headers: {
            Accept: "*/*",
