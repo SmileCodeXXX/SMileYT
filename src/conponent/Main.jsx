@@ -17,23 +17,18 @@ function Main() {
     e.preventDefault();
 
     try {
-     await axios.get(
-        `https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+     await axios(
         {
           headers: {
-         
-          'Content-Type':' application/json',
-          'Access-Control-Allow-Methods': 'GET, OPTIONS, DELETE',
-          'Access-Control-Allow-Headers': 'Content-Type, x-requested-with',
-          'Access-Control-Allow-Origin':'https://smileyt.netlify.app/?=',
+          //'Content-Type':' application/json',
+          //'Access-Control-Allow-Methods': 'GET, OPTIONS, DELETE',
+          //'Access-Control-Allow-Headers': 'Content-Type, x-requested-with',
+          //'Access-Control-Allow-Origin':'https://smileyt.netlify.app/?=',
           //'Access-Control-Expose-Headers': '*'
           },
-          accept: '*/*',
-          mode:'no-cors',
+          method: 'get',
+          url:`https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
           responseType:'json'
-          //withCredentials: true,
-          //credentials:'include'
-          
         }
       ).then((res)=>{
        console.log(res)
