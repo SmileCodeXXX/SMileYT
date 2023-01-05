@@ -18,21 +18,17 @@ function Main() {
 
     try {
      await axios(
-        {
-          headers: {
+        `https://loader.to/ajax/download.php`,
+          {headers: {
             'Content-Type': 'application/json',
-              //'Origin':'*',
-              //'User-Agent': 'uaheader',
-              //"Access-Control-Allow-Headers":"GET, POST, PUT, DELETE, OPTIONS" ,
-             // 'Access-Control-Allow-Origin':'*'            
+            // 'Access-Control-Allow-Origin':'*'            
           },
+          params:{
+            url:`${videoUrl}`,
+            format:`${getFormat}`
+          }
           
-          method: 'GET',
-          url:`https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
-          //baseURL: '',
-          responseEncoding: 'utf8',
-          responseType:'json', 
-        }
+      }   
       ).then((res)=>{
        console.log(res)
        setData([...data,{
