@@ -20,16 +20,16 @@ function Main() {
      await axios(
         {
           headers: {
-              'Origin':'https://smileyt.netlify.app',
-              'User-Agent': 'uaheader',
-              //"Access-Control-Allow-Headers":"GET, POST, PUT, DELETE, OPTIONS"             
+              //'Origin':'*',
+              //'User-Agent': 'uaheader',
+              //"Access-Control-Allow-Headers":"GET, POST, PUT, DELETE, OPTIONS" ,
+             // 'Access-Control-Allow-Origin':'*'            
           },
           method: 'GET',
           url:`https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
           //baseURL: '',
           responseEncoding: 'utf8',
-          responseType:'json',
-          
+          responseType:'json', 
         }
       ).then((res)=>{
        console.log(res)
