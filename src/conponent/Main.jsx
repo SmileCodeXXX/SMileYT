@@ -18,19 +18,15 @@ function Main() {
 
     try {
      await axios(
-        `https://loader.to/ajax/download.php`,
+        `https://smileyt.netlify.app/https://loader.to/ajax/download.php`,
           {headers: {
             'Content-Type': 'application/json',
-            //'Access-Control-Allow-Origin':'https://smileyt.netlify.app/'            
+            'Access-Control-Allow-Origin': 'https://smileyt.netlify.app'
           },
           params:{
             url:`${videoUrl}`,
             format:`${getFormat}`,
-            origin: 'https://smileyt.netlify.app/'
           },
-          proxy:{
-            host:'https://smileyt.netlify.app/'
-          }
           
           
       }   
