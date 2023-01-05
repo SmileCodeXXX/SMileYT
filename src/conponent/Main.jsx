@@ -21,13 +21,18 @@ function Main() {
         {
           headers: {
           //'Content-Type':' application/json',
-          //'Access-Control-Allow-Methods': 'GET, OPTIONS, DELETE',
+          'Access-Control-Allow-Methods': 'GET, OPTIONS, DELETE',
           //'Access-Control-Allow-Headers': 'Content-Type, x-requested-with',
-          'Access-Control-Allow-Origin':'https://smileyt.netlify.app/',
+          //'Access-Control-Allow-Origin':'https://smileyt.netlify.app/',
+          //'X-Custom-Header': 'foobar',
+          'Access-Control-Allow-Credentials':true,
+
           //'Access-Control-Expose-Headers': '*'
           },
           method: 'get',
-          url:`https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+          url:`https://smileyt.netlify.app https://loader.to/ajax/download.php?format=${getFormat}&url=${videoUrl}`,
+          //baseURL: '',
+          responseEncoding: 'utf8',
           responseType:'json'
         }
       ).then((res)=>{
