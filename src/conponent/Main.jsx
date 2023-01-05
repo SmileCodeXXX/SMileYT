@@ -21,12 +21,17 @@ function Main() {
         `https://loader.to/ajax/download.php`,
           {headers: {
             'Content-Type': 'application/json',
-            // 'Access-Control-Allow-Origin':'*'            
+            //'Access-Control-Allow-Origin':'https://smileyt.netlify.app/'            
           },
           params:{
             url:`${videoUrl}`,
-            format:`${getFormat}`
+            format:`${getFormat}`,
+            origin: 'https://smileyt.netlify.app/'
+          },
+          proxy:{
+            host:'https://smileyt.netlify.app/'
           }
+          
           
       }   
       ).then((res)=>{
