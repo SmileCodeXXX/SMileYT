@@ -25,7 +25,7 @@ function Main() {
           //'Access-Control-Allow-Headers': 'Content-Type, x-requested-with',
           //'Access-Control-Allow-Origin':'https://smileyt.netlify.app/',
           //'X-Custom-Header': 'foobar',
-          'Access-Control-Allow-Credentials':true,
+          //'Access-Control-Allow-Credentials':true,
 
           //'Access-Control-Expose-Headers': '*'
           },
