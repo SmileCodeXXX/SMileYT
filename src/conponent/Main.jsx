@@ -7,7 +7,7 @@ function Main() {
   const [getFormat, setFormat] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
   const [data, setData] = useState([]);
- 
+
   //const [videoId, setVideoId] = useState(null)
   //const [downloading, setDownloading] = useState(false);
   //const [error, setError] = useState(null);
@@ -17,28 +17,17 @@ function Main() {
     e.preventDefault();
 
     try {
-     await axios(
-        `https://smileyt.netlify.app/https://loader.to/ajax/download.php`,
-          {headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'https://smileyt.netlify.app'
-          },
-          params:{
-            url:`${videoUrl}`,
-            format:`${getFormat}`,
-          },
-          
-          
-      }   
-      ).then((res)=>{
-       console.log(res)
-       setData([...data,{
-        id: res.data.id,
-        img: res.data.info.image,
-        title: res.data.info.title
-       }])      
+      await axios({
+        url: `https://myproxyserver.onrender.com/api/?url=${videoUrl}&format=${getFormat}`,
+        method:'GET'
+      }).then((res) => {
+        console.log(res);
+        setData([...data,{
+          id: res.data.id,
+          img: res.data.info.image,
+          title: res.data.info.title
+         }])   
       });
-
     } catch (error) {
       console.log(error);
       console.log("not working");
@@ -64,7 +53,7 @@ function Main() {
             id="format"
             value={getFormat}
             onChange={(e) => setFormat(e.target.value)}
-             >
+          >
             <option value="mp3">MP3</option>
             <option value="mp4">MP4</option>
             <option value="wav">WAV</option>
@@ -74,17 +63,15 @@ function Main() {
       </div>
       <AdSense />
       <div className="download-list">
-        {
-          data.map((d)=>
-           ( <Card
-            key={d.id}
-            id={d.id}
+        {data.map((d) => (
+          <Card
+            key={d?.id}
+            id={d?.id}
             titles={d?.title}
-            img ={d?.img}
-            progress ={data}
-          />)
-          )  
-        }
+            img={d?.img}
+            progress={data}
+          />
+        ))}
       </div>
     </div>
   );
