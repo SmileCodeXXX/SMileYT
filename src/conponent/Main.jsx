@@ -18,8 +18,9 @@ function Main() {
 
     try {
       await axios({
-        url: `https://myproxyserver.onrender.com/api/?url=${videoUrl}&format=${getFormat}`,
-        method:'GET'
+        url: `http://localhost:5500/api/?url=${videoUrl}&format=${getFormat}`,
+        method:'GET',
+        header:{"Content-Type":"application/x-www-form-urlencoded"}
       }).then((res) => {
         console.log(res);
         setData([...data,{
