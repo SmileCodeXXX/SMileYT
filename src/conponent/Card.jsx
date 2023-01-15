@@ -1,37 +1,33 @@
-import axios from 'axios';
+//import axios from 'axios';
 
-function Card({titles,playback,img,id}) {
+//import { useEffect,useState } from "react";
+function Card({ title, duration, img, url }) {
+  // const [isDownloading, setIsDownloading] = useState(false);
+  //const [progress, setProgress] = useState(0);
 
-    const downloadVideo = async() => {
-        //console.log(videoId);
-        //setVideoId(url.id);
-        await axios({
-           url: `https://loader.to/ajax/progress.php?id=${id}`,
-           method: "GET",
-           headers: {
-             Accept: "*//*",
-           },
-         }).then((response) => {
-           console.log(response.data);
-           const a = document.createElement("a");
-           a.href = response.data.download_url;
-           a.download = "video.mp4";
-           document.body.appendChild(a);
-           a.click();
-           a.remove();
-           //setDownloading(false);
-         });
-       };
+  const handleClick = async () => {};
+
   return (
-   <div className="card">   
-        <img src={img} alt={'card'} />
-        <div className="contents">
-            <h4>{titles}</h4>
-            <h4>{playback}</h4>
-            <button className='download' onClick={downloadVideo} style={{width:'90%'}}>Download</button>
-        </div>
-   </div>
-  )
+    <div className="card">
+      <img src={img} alt={"card"} />
+      <div className="contents">
+        <h4>Song: {title}</h4>
+        <h4>Duration: {Math.ceil(Number(duration)/60)}:{Math.floor(Number(duration)/60)}</h4>
+        <button
+          className="download"
+          onClick={handleClick}
+          // disabled={isDownloading}
+          style={{ width: "90%" }}>
+          Download
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default Card;
+
+/**
+ *  {isDownloading ? "Downloading..." : "Download"}
+    <label>{`Download Progress: ${Math.round(progress * 100)}%`}</label>
+ */

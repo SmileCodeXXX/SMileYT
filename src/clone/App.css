@@ -62,7 +62,6 @@ ul li:hover{
     align-items: center;
     margin:  auto;
     padding: auto;
-    height: 80%;
     z-index: 1;
 }
 
@@ -179,8 +178,6 @@ img{
    display: flex;
    align-items: center;
    justify-content: center;
-   /*position: absolute;*/
-   bottom: 0;
 }
 
 .ads{

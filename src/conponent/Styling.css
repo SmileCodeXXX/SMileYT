@@ -1,0 +1,53 @@
+/*.download-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  width: 100px;
+}
+
+button[type="submit"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+.progress-container {
+  width: 100%;
+  background-color: #ddd;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.progress {
+  background-color: #4caf50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  line-height: 30px;
+}
+*/
