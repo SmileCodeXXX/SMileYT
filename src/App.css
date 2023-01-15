@@ -5,7 +5,9 @@
     font: sans-serif;
 }
 body{
-    background-color: rgb(227, 234, 248);
+    width: 100%;
+    height: 100%;
+    /*background-color: rgb(227, 234, 248);*/
 }
 .wrapper{
     width: 100%;
@@ -132,7 +134,7 @@ select{
 /*card styling */
 .download-list{
     width:100%;
-    max-height: 500px;
+    /*max-height: 500px;*/
     display: block;
     background-color: rgb(255, 255, 255);
     overflow: auto;
@@ -259,5 +261,18 @@ img{
         background-color: rgb(255, 255, 255);
         border-radius: 4px;
         overflow: hidden;
+    }
+
+
+    .download-list{
+        width: 80%;
+        flex: auto;
+        padding: 25px;
+        gap: 10rem;
+        margin: auto;
+    }
+    .download-list ol{
+        margin-left: 20px;
+        margin-top: 20px;
     }
 }
