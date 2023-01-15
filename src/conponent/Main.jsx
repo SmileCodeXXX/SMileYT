@@ -17,7 +17,7 @@ const Main = () => {
         return alert('enter url')
     try {
       const response = await axios.get(
-        `http://localhost:5500/download/?url=${url}&format=${format}`
+        `https://myproxyserver.onrender.com/download/?url=${url}&format=${format}`
       );
       if (response.status === 400 || 500 || 404) {
         console.log(response.statusText);
