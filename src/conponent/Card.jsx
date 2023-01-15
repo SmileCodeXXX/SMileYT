@@ -1,11 +1,31 @@
-//import axios from 'axios';
+import axios from 'axios';
 
 //import { useEffect,useState } from "react";
 function Card({ title, duration, img, url }) {
   // const [isDownloading, setIsDownloading] = useState(false);
   //const [progress, setProgress] = useState(0);
-
-  const handleClick = async () => {};
+console.log(url)
+  //const handleClick = async () => {};
+  const handleClick = ()=>{
+    /*
+    axios(`http://localhost:3000?${url}`,{
+        //url:`${url}`,
+        method: 'GET',
+        responseType: 'blob', // important
+        headers:{
+          'Access-Control-Allow-Origin':'*'
+        }
+      }).then((response) => {
+        console.log(response)
+        
+    });*/
+    const urls = window.URL.createObjectURL(new Blob([url]));
+        const link = document.createElement('a');
+        link.href = urls;
+       // link.setAttribute('download', `${title}.mp3`);
+        document.body.appendChild(link);
+        link.click();
+}
 
   return (
     <div className="card">

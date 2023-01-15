@@ -133,11 +133,20 @@ select{
 
 /*card styling */
 .download-list{
-    width:100%;
+    /*width:100%;
     /*max-height: 500px;*/
     display: block;
+    margin: auto;
+    padding: 12px;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.101), 0 1px 3px rgba(0, 0, 0, 0.101);
+    width: 90%;
     overflow: auto;
+    margin-bottom: 80px;
+}
+.download-list ol{
+    margin-left: 20px;
+    margin-top: 20px;
 }
 .card{
     display: flex;
@@ -207,8 +216,9 @@ img{
 /*larger monitor*/
 @media screen and (min-width: 1024px) {
     .centerForm form{
-        width: 25%;
+        width: 45%;
         height: 70%;
+
     }
     .links{
         display:flex;
@@ -257,7 +267,7 @@ img{
         gap: 1rem;
         justify-content: flex-start;
         align-items: center;
-        width: 50%;
+        width: 90%;
         background-color: rgb(255, 255, 255);
         border-radius: 4px;
         overflow: hidden;
@@ -270,6 +280,9 @@ img{
         padding: 25px;
         gap: 10rem;
         margin: auto;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.101), 0 1px 3px rgba(0, 0, 0, 0.101);
+        margin-bottom: 80px;
+        border-radius: 4px;
     }
     .download-list ol{
         margin-left: 20px;

@@ -75,6 +75,7 @@ const Main = () => {
               title={res.title}
               img={res?.thumbnail}
               duration={res?.duration}
+              url={res?.url}
             />
           );
         })}
