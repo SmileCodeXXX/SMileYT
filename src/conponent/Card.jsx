@@ -1,16 +1,18 @@
 import axios from "axios";
-const download = require('downloadjs')
-//import { useEffect,useState } from "react";
+//const download = require('downloadjs')
+import { /*useEffect,*/useState } from "react";
 function Card({ title, duration, img, url }) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [progress, setProgress] = useState(0);
   //console.log(url);
   //const handleClick = async () => {};
   const handleClick = async() => {
+    setIsDownloading(true)
     await axios(`https://my-proxy.up.railway.app/${url}`,{
       responseType:'blob',
       onDownloadProgress: (progressEvent) => {
         setProgress(Math.round((progressEvent.loaded * 100) / progressEvent.total));
+        console.log(progressEvent.total)
     },
     }
       ).then(res => res.data)
@@ -22,6 +24,8 @@ function Card({ title, duration, img, url }) {
       link.setAttribute('download', `${title}.${file.type}`);
       document.body.appendChild(link);
       link.click()
+    }).finally(()=>{
+      setIsDownloading(false)
     })
    
   };
@@ -42,8 +46,8 @@ function Card({ title, duration, img, url }) {
           disabled={isDownloading}
           style={{ width: "90%" }}
         >
-          {isDownloading ? "Downloading..." : "Download"}
-          <label>{`Download Progress: ${Math.round(progress * 100)}%`}</label>
+          {isDownloading ?  <label>{`Download Progress: ${Math.round(progress * 1)}%`}</label> : "Download"}
+         
         </button>
       </div>
     </div>

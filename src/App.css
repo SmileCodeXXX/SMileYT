@@ -84,7 +84,7 @@ ul li:hover{
     padding: 35px 30px;
     margin-top: 2rem;
     background-color: rgb(255, 255, 255);
-    height: 50%;
+    height: 60%;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.296);
 }
@@ -130,7 +130,9 @@ select{
     white-space: nowrap;
     vertical-align: middle;
 }
-
+.spacer{
+    margin-top: 70px;
+}
 /*card styling */
 .download-list{
     /*width:100%;
@@ -205,11 +207,11 @@ img{
 }
 
 
-/*larger monitor*/
+/*tablets monitor*/
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .centerForm form{
-        width: 35%;
-        height: 60%;
+        width: 50%;
+        height: 70%;
     }
 }
 

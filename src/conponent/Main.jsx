@@ -79,6 +79,7 @@ const Main = () => {
             />
           );
         })}
+        <div className="spacer"></div>
         <p>
           At Smileyt.com You may download YouTube videos in practically any
           format, including the most popular one, MP3, by using the top online
