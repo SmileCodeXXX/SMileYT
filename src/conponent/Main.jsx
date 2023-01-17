@@ -16,7 +16,7 @@ const Main = () => {
     if (url === "") return alert("enter url");
     try {
       const response = await axios.get(
-        `https://myproxyserver.onrender.com/download/?url=${url}&format=${format}`
+        `https://myproxyserver.onrender.com/api/info/?url=${url}&format=${format}`
       );
       if (response.status === 400 || 500 || 404) {
         console.log(response.statusText);
