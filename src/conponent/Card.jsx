@@ -1,33 +1,31 @@
 import axios from "axios";
 //const download = require('downloadjs')
-import { /*useEffect,*/useState } from "react";
-function Card({ title, duration, img, url }) {
+import { useEffect, useState } from "react";
+function Card({ title, duration, img, id }) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [progress, setProgress] = useState(0);
-  //console.log(url);
-  //const handleClick = async () => {};
-  const handleClick = async() => {
-    setIsDownloading(true)
-    await axios(`https://my-proxy.up.railway.app/${url}`,{
-      responseType:'blob',
-      onDownloadProgress: (progressEvent) => {
-        setProgress(Math.round((progressEvent.loaded * 100) / progressEvent.total));
-        console.log(progressEvent.total)
-    },
-    }
-      ).then(res => res.data)
-    .then(file =>{
-      console.log(file)
-      const urls = window.URL.createObjectURL(new Blob([file],{type: 'audio/mp3'}));
-      const link = document.createElement('a');
-      link.href = urls;
-      link.setAttribute('download', `${title}.${file.type}`);
-      document.body.appendChild(link);
-      link.click()
-    }).finally(()=>{
-      setIsDownloading(false)
-    })
-   
+  //console.log(id);
+  //const handleClick = async () => {};https://my-proxy.up.railway.app/http://localhost:5500/api/download/ ?url=${url}&format=${format}
+
+  useEffect(() => {}, []);
+
+  const handleClick = async () => {
+    setIsDownloading(true);
+    await axios(
+      `https://my-proxy.up.railway.app/https://loader.to/ajax/progress.php?id=${id}`
+    ).then((res) => {
+      setProgress(res.data.progress)
+      if(res.data.success === 1){
+       // setIsDownloading(false)
+       console.log(res.data.download_url)
+       const url = res.data.download_url
+       const link = document.createElement('a');
+       link.href = url;
+       //link.setAttribute('download', `${title}.${file.type}`);
+       document.body.appendChild(link);
+       link.click()
+      }
+    });
   };
 
   return (
@@ -46,8 +44,11 @@ function Card({ title, duration, img, url }) {
           disabled={isDownloading}
           style={{ width: "90%" }}
         >
-          {isDownloading ?  <label>{`Download Progress: ${Math.round(progress * 1)}%`}</label> : "Download"}
-         
+          {isDownloading ? (
+            <label>{`Download Progress: ${Math.round(progress / 10)}%`}</label>
+          ) : (
+            "Download"
+          )}
         </button>
       </div>
     </div>
@@ -55,6 +56,34 @@ function Card({ title, duration, img, url }) {
 }
 
 export default Card;
+
+/***
+ * 
+ * axios(`${downloadResponse.download_url}`,{
+              responseType:'blob',
+              onDownloadProgress: (progressEvent) => {
+                setProgress(Math.round((progressEvent.loaded * 100) / progressEvent.total));
+                console.log(progressEvent.total)
+            }
+           })
+ * 
+ * 
+ * 
+ * 
+
+
+ *  .then(file =>{
+      console.log(file)
+      const urls = window.URL.createObjectURL(new Blob([file],{type: 'audio/mp3'}));
+      const link = document.createElement('a');
+      link.href = urls;
+      link.setAttribute('download', `${title}.${file.type}`);
+      document.body.appendChild(link);
+      link.click()
+    }).finally(()=>{
+      setIsDownloading(false)
+    })
+ */
 
 /**
  *  {isDownloading ? "Downloading..." : "Download"}

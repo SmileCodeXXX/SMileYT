@@ -150,6 +150,9 @@ select{
     margin-left: 20px;
     margin-top: 20px;
 }
+.download-list p{
+    margin: 12px 0;
+}
 .card{
     display: flex;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.364), 0 1px 3px rgba(0, 0, 0, 0.357);

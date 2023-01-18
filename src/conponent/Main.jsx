@@ -3,7 +3,7 @@ import axios from "axios";
 import Card from "./Card";
 //import './Styling.css';
 
-//http://localhost:5500
+//http://localhost:5500 https://myproxyserver.onrender.com/api/info
 const Main = () => {
   const [url, setUrl] = useState("");
   const [format, setFormat] = useState("mp3");
@@ -16,7 +16,7 @@ const Main = () => {
     if (url === "") return alert("enter url");
     try {
       const response = await axios.get(
-        `https://myproxyserver.onrender.com/api/info/?url=${url}&format=${format}`
+        `https://loader.to/ajax/download.php?url=${url}&format=${format}`
       );
       if (response.status === 400 || 500 || 404) {
         console.log(response.statusText);
@@ -25,10 +25,10 @@ const Main = () => {
       setData([
         ...data,
         {
-          title: response.data.title,
-          thumbnail: response.data.thumbnail,
-          url: response.data.url,
-          duration: response.data.duration,
+          title: response?.data.title,
+          thumbnail: response.data.info?.image,
+          id: response?.data.id,
+          duration: response?.data.duration,
         },
       ]);
     } catch (error) {
@@ -72,10 +72,10 @@ const Main = () => {
           return (
             <Card
               key={idx}
-              title={res.title}
+              title={res?.title}
               img={res?.thumbnail}
               duration={res?.duration}
-              url={res?.url}
+              id={res?.id}
             />
           );
         })}
