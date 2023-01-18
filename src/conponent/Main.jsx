@@ -16,7 +16,7 @@ const Main = () => {
     if (url === "") return alert("enter url");
     try {
       const response = await axios.get(
-        `https://loader.to/ajax/download.php?url=${url}&format=${format}`
+        `https://my-proxy.up.railway.app/https://loader.to/ajax/download.php?url=${url}&format=${format}`
       );
       if (response.status === 400 || 500 || 404) {
         console.log(response.statusText);
