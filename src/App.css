@@ -121,14 +121,15 @@ select{
     margin-top: 15px;
     background-color: #f63a1d;
     color: white;
-    padding: 15px;
+    padding: 18px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-weight:700;
-    font-size: 1.5rem;
+    font-weight:900;
+    font-size: 0.97rem;
     white-space: nowrap;
     vertical-align: middle;
+    text-align: center;
 }
 .spacer{
     margin-top: 70px;
@@ -216,6 +217,9 @@ img{
         width: 50%;
         height: 70%;
     }
+    .download{
+        font-size: 1.5rem;
+    }
 }
 
 /*larger monitor*/
@@ -292,5 +296,8 @@ img{
     .download-list ol{
         margin-left: 20px;
         margin-top: 20px;
+    }
+    .download{
+        font-size: 1.5rem;
     }
 }

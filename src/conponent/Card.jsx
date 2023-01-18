@@ -16,12 +16,10 @@ function Card({ title, duration, img, id }) {
     ).then((res) => {
       setProgress(res.data.progress)
       if(res.data.success === 1){
-       // setIsDownloading(false)
        console.log(res.data.download_url)
        const url = res.data.download_url
        const link = document.createElement('a');
        link.href = url;
-       //link.setAttribute('download', `${title}.${file.type}`);
        document.body.appendChild(link);
        link.click()
       }
