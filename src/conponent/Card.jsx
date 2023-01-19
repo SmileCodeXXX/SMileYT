@@ -14,6 +14,7 @@ function Card({ title, duration, img, id }) {
     await axios(
       `https://my-proxy.up.railway.app/https://loader.to/ajax/progress.php?id=${id}`
     ).then((res) => {
+      
       setProgress(res.data.progress)
       if(res.data.success === 1){
        console.log(res.data.download_url)
@@ -39,7 +40,7 @@ function Card({ title, duration, img, id }) {
           className="download"
           //href={url}
           onClick={handleClick}
-          disabled={isDownloading}
+         // disabled={isDownloading}
           style={{ width: "90%" }}
         >
           {isDownloading ? (

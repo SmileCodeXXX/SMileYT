@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Card from "./Card";
+import AdSensed from "./AdsPage";
 //import './Styling.css';
 
 //http://localhost:5500 https://myproxyserver.onrender.com/api/info
@@ -16,7 +17,7 @@ const Main = () => {
     if (url === "") return alert("enter url");
     try {
       const response = await axios.get(
-        `https://my-proxy.up.railway.app/https://loader.to/ajax/download.php?url=${url}&format=${format}`
+        `https://my-proxy.up.railway.app/https://loader.to/ajax/download.php?url=${url}&format=${format}`,
       );
       if (response.status === 400 || 500 || 404) {
         console.log(response.statusText);
@@ -59,8 +60,9 @@ const Main = () => {
             onChange={(e) => setFormat(e.target.value)}
           >
             <option value="mp3">MP3</option>
-            <option value="mp4">MP4</option>
+            <option value="1080">MP4</option>
             <option value="wav">WAV</option>
+            <option value="webm">WEBM</option>
           </select>
           <button className="download">Download</button>
         </form>
@@ -105,6 +107,7 @@ const Main = () => {
           launching, and now it's the most used audio format. Start converting
           and downloading YouTube playlists to MP3!
         </p>
+        <AdSensed/>
         <h2>
           How to convert & download YouTube playlists to MP3 using Smileyt.com
         </h2>
@@ -127,6 +130,7 @@ const Main = () => {
             <li>Download your songs!</li>
         </ol>
         <p>See? Easy and fast. Anyone can convert YouTube playlists to MP3 with our tool.</p>
+        <AdSensed/>
       </div>
     </div>
   );
