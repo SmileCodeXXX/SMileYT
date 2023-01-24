@@ -12,10 +12,10 @@ function NavBar() {
         <div className="logo"><Link to="/">SMILE YT</Link></div>
         <div className="links">
             <ul>
-                <li>YouTube</li>
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Tiktok</li>
+                <li><Link to='/'>YouTube</Link></li>
+                <li><Link to='/'>Facebook</Link></li>
+                <li><Link to='/'>Instagram</Link></li>
+                <li><Link to='/'>Tiktok</Link></li>
             </ul>
         </div>
         <MdDehaze className="mobile-link"/>

@@ -199,6 +199,7 @@ img{
    background-color: rgba(76, 75, 75, 0.397);
    display: flex;
    padding: 80px;
+   gap: 5px;
    flex-direction: column;
    align-items: center;
    justify-content: space-around;
@@ -206,8 +207,7 @@ img{
    bottom: 0;
 }
 .footer p{
-    font-size: 15px;
-    
+    font-size: 13.3px;
 }
 .ads{
     
@@ -226,8 +226,11 @@ img{
 }
 /*privacy styling**/
 .privacyContainer{
-    margin: auto 10px;
-    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: auto;
+    padding: 50px;
     width: 100%;
 
 }
@@ -244,6 +247,10 @@ img{
 
 /*larger monitor*/
 @media screen and (min-width: 1024px) {
+    .footer p{
+        font-size: 15px;
+       /* text-indent: 1px;*/
+    }
     .centerForm form{
         width: 45%;
         height: 75%;
@@ -319,5 +326,12 @@ img{
     }
     .download{
         font-size: 1.5rem;
+    }
+
+    .privacyContainer{
+        margin: auto 10px;
+        padding: 100px;
+        width: 100%;
+    
     }
 }
