@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Card from "./Card";
-import AdSensed from "./AdsPage";
+import Card from "../conponent/Card";
+import AdSensed from "../conponent/AdsPage";
 //import './Styling.css';
 
 //http://localhost:5500 https://myproxyserver.onrender.com/api/info
@@ -14,14 +14,17 @@ const Main = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUrl("");
+
+    if (!/^https:\/\/www\.youtube\.com\/watch\?v=/.test(url)) {
+      setError('Please enter a valid YouTube video URL');
+      return;
+  }
     if (url === "") return alert("enter url");
     try {
       const response = await axios.get(
         `https://my-proxy.up.railway.app/https://loader.to/ajax/download.php?url=${url}&format=${format}`,
       );
-      if (response.status === 400 || 500 || 404) {
-        console.log(response.statusText);
-      }
+      
       console.log(response.data);
       setData([
         ...data,
@@ -34,7 +37,7 @@ const Main = () => {
       ]);
     } catch (error) {
       console.log(error);
-      setError(error);
+      setError(error.message);
     }
   };
 
@@ -52,6 +55,7 @@ const Main = () => {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />
+          
           <label htmlFor="url">Format:</label>
           <select
             name="format"
@@ -65,6 +69,7 @@ const Main = () => {
             <option value="webm">WEBM</option>
           </select>
           <button className="download">Download</button>
+          
         </form>
         <span>{error}</span>
       </div>
@@ -132,6 +137,7 @@ const Main = () => {
         <p>See? Easy and fast. Anyone can convert YouTube playlists to MP3 with our tool.</p>
         <AdSensed/>
       </div>
+     
     </div>
   );
 };
